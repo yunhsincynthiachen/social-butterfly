@@ -13,6 +13,7 @@ var mongoose = require("mongoose");
 // var pages = require("./routes/pages");
 var events = require("./routes/events");
 var add = require("./routes/add");
+var people = require("./routes/people");
 //var people = require("./routes/people");
 
 
@@ -39,7 +40,7 @@ app.get("/api/eventDescription/:event", events.dispEvent)
 
 app.post("/api/addEvent", add.addEvent);
 
-//app.get("/api/peopleList", people.getPeople);
+app.get("/api/peopleList", people.getPeople);
 //app.get("/api/personMeet/:person", people.getPerson);
 
 
