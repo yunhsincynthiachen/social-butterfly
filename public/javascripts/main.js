@@ -15,10 +15,10 @@ socialButterfly.config(function($routeProvider) {
         	templateUrl : '../pages/eventList.html',
         	controller : 'eventsController'
         })
-        // .when('/eventDescription/:event', {
-        // 	templateUrl : '../pages/event.html',
-        // 	controller : 'byTopicController'
-        // })
+        .when('/eventDescription/:event', {
+        	templateUrl : '../pages/event.html',
+        	controller : 'byEventController'
+        })
         .when('/add', {
         	templateUrl : '../pages/add.html',
         	controller : 'addController'
@@ -121,19 +121,19 @@ socialButterfly.controller('peopleController', function($scope, $http) {
 });
 
 
-// wikiParty.controller('byTopicController', function($scope, $http, $routeParams) {
-// 	// Get the page id from the url
-// 	var topicId = $routeParams.topic;
+socialButterfly.controller('byEventController', function($scope, $http, $routeParams) {
+	// Get the page id from the url
+	var eventId = $routeParams.event;
 
-// 	// Get the requested page by topic id
-// 	$http.get('/api/pages/' + topicId)
-// 		.success(function(data){
-// 			$scope.topic = data;
-// 		})
-// 		.error(function(data) {
-// 			console.log("Error: " + data);
-// 		});
-// });
+	// Get the requested page by topic id
+	$http.get('/api/eventDescription/' + eventId)
+		.success(function(data){
+			$scope.event = data;
+		})
+		.error(function(data) {
+			console.log("Error: " + data);
+		});
+});
 
 // wikiParty.controller('searchController', function($scope, $http, $window) {
 // 	$scope.searchData = {};
