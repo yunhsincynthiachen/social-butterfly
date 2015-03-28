@@ -37,7 +37,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.get("/api/eventList", events.getEvents);
 app.get("/api/eventDescription/:event", events.dispEvent)
 
-//app.post("/api/addEvent", add.addEvent);
+app.post("/api/addEvent", add.addEvent);
 
 //app.get("/api/peopleList", people.getPeople);
 //app.get("/api/personMeet/:person", people.getPerson);
