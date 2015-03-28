@@ -28,7 +28,7 @@ socialButterfly.config(function($routeProvider) {
         	controller : 'addMeController'
         })
 
-        .when('/peopleList', {
+        .when('/peopleList/:event', {
             templateUrl : '../pages/people.html',
             controller : 'peopleController'
         })
@@ -107,12 +107,14 @@ socialButterfly.controller('addMeController', function($scope, $http, $routePara
 
 });
 
-socialButterfly.controller('peopleController', function($scope, $http) {
+socialButterfly.controller('peopleController', function($scope, $http, $routeParams) {
     // Get all of the pages in the database
+    var eventId = $routeParams.event;
     console.log("people control")
-    $http.get('/api/peopleList')
+    $http.get('/api/peopleList/' + eventId)
         .success(function(data){
             $scope.people = data;
+            $scope.eventId = eventId;
             console.log(data);
             // $scope.name = data[0].name;
             // console.log("The name is " + data[0].name);

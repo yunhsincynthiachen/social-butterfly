@@ -1,0 +1,23 @@
+<div class='peopleList'>
+	<!-- <div class = "background-img">
+		<img src = "images/aa949330-smush-more-party.jpg">
+	</div> -->
+
+	<div class = "main-content">
+		<h1>People!</h1>
+		<button><a href="#addMe">Button Text</a></button>
+		
+
+		<br>
+		<div ng-repeat="person in people">
+			<div class="col-sm-12 page-name">
+		            <div class = "col-md-6"><a href="#eventDescription/{{event._id}}">
+		            	{{$index + 1}}. {{person.name}}
+		            </a></div>
+
+		          </div>
+		    </div><!-- /.col-sm-4 -->
+		</div>
+	</div>
+
+</div>
