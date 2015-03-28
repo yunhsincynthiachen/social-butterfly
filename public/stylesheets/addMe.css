@@ -1,0 +1,26 @@
+.addMe {
+	position: absolute;
+	top:11vh;
+	text-align:center;
+	width: 84%;
+	margin-left: 8%;
+	margin-right: 8%;
+}
+
+.addMe #description{
+}
+.addMe input{
+	margin:1rem;
+	padding: 1rem;
+	border-radius: .5rem;
+	width: 29rem;
+	word-wrap: break-word;
+}
+.addMe button{
+	padding: 1rem;
+	border-radius: .5rem;
+	margin-top:1rem;
+}
+.addMe input:focus {
+	outline:none;
+}

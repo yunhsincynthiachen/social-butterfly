@@ -27,6 +27,11 @@ socialButterfly.config(function($routeProvider) {
         	templateUrl : '../pages/addMe.html',
         	controller : 'addMeController'
         })
+
+        .when('/peopleList', {
+            templateUrl : '../pages/people.html',
+            controller : 'peopleController'
+        })
         // .when('/edit/:topic', {
         // 	templateUrl : '../pages/edit.html',
         // 	controller : 'editController'
@@ -81,7 +86,7 @@ socialButterfly.controller('addMeController', function($scope, $http) {
 	console.log('hello')
 
 	// Submit new page 
-	$scope.addPage = function () {
+	$scope.addMe = function () {
 		$http.post('/api/addMe', $scope.personData)
 			.success(function(data){
 				$scope.personData = {};
@@ -98,6 +103,24 @@ socialButterfly.controller('addMeController', function($scope, $http) {
 	};
 
 });
+
+socialButterfly.controller('peopleController', function($scope, $http) {
+    // Get all of the pages in the database
+    console.log("people control")
+    $http.get('/api/peopleList')
+        .success(function(data){
+            $scope.people = data;
+            console.log(data);
+            // $scope.name = data[0].name;
+            // console.log("The name is " + data[0].name);
+        })
+        .error(function(data) {
+            console.log("Error: " + data);
+        });
+    
+});
+
+
 // wikiParty.controller('byTopicController', function($scope, $http, $routeParams) {
 // 	// Get the page id from the url
 // 	var topicId = $routeParams.topic;
