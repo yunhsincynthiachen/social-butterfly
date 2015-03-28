@@ -15,10 +15,10 @@ socialButterfly.config(function($routeProvider) {
         	templateUrl : '../pages/eventList.html',
         	controller : 'eventsController'
         })
-        .when('/eventDescription/:event', {
-        	templateUrl : '../pages/event.html',
-        	controller : 'byTopicController'
-        })
+        // .when('/eventDescription/:event', {
+        // 	templateUrl : '../pages/event.html',
+        // 	controller : 'byTopicController'
+        // })
         // .when('/add', {
         // 	templateUrl : '../pages/add.html',
         // 	controller : 'addController'
@@ -32,11 +32,13 @@ socialButterfly.config(function($routeProvider) {
 
 socialButterfly.controller('eventsController', function($scope, $http) {
 	// Get all of the pages in the database
+	console.log("events control")
 	$http.get('/api/eventList')
 		.success(function(data){
 			$scope.events = data;
-			$scope.name = data[0].name;
-			console.log("The name is " + data[0].name);
+			console.log(data);
+			// $scope.name = data[0].name;
+			// console.log("The name is " + data[0].name);
 		})
 		.error(function(data) {
 			console.log("Error: " + data);
