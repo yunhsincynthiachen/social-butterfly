@@ -1,0 +1,66 @@
+.eventList {
+	position:absolute;
+	width:100%;
+}
+
+.eventList .background-img img{
+	position: fixed;
+	height: 100vh;
+}	
+
+.eventList .main-content {
+	position: absolute;
+	top:15vh;
+	width: 80%;
+	margin-left: 10%;
+	margin-right: 10%;
+	text-align: center;
+	padding-bottom:4rem;
+}
+
+
+.eventList h1 {
+	color:#eee;
+	font-size: 3.5rem;
+}
+
+.eventList a {
+	text-decoration: none;
+	color:#111;
+	font-size: 1.75rem;
+}
+
+.eventList a:hover {
+	text-decoration: none;
+	color:#111;
+}
+
+.eventList .page-name {
+	background-color: #eee;
+	margin: 1rem;
+	padding-left: 2rem;
+	padding-right:1.25rem;
+	padding-top:1.25rem;
+	padding-bottom:1.25rem;
+	border-radius: 1rem;
+	text-align: left;
+}
+
+.eventList .page-name:hover {
+	background-color: #bbb;
+	cursor:pointer;
+}
+
+.eventList .dateUpdated {
+	text-align:right;
+}
+
+@media only screen and (min-width: 50em) {
+	.eventList .background-img img{
+	width: 100%;
+	}
+
+	.eventList h1 {
+	font-size: 5.5rem;
+}
+}
