@@ -19,10 +19,10 @@ socialButterfly.config(function($routeProvider) {
         // 	templateUrl : '../pages/event.html',
         // 	controller : 'byTopicController'
         // })
-        // .when('/add', {
-        // 	templateUrl : '../pages/add.html',
-        // 	controller : 'addController'
-        // })
+        .when('/add', {
+        	templateUrl : '../pages/add.html',
+        	controller : 'addController'
+        })
         // .when('/edit/:topic', {
         // 	templateUrl : '../pages/edit.html',
         // 	controller : 'editController'
@@ -47,28 +47,29 @@ socialButterfly.controller('eventsController', function($scope, $http) {
 });
 
 
-// wikiParty.controller('addController', function($scope, $http) {
-// 	$scope.formData = {};
-// 	$scope.msg = "";
+socialButterfly.controller('addController', function($scope, $http) {
+	$scope.formData = {};
+	$scope.msg = "";
+	console.log('hello')
 
-// 	// Submit new page 
-// 	$scope.addPage = function () {
-// 		$http.post('/api/addTopic', $scope.formData)
-// 			.success(function(data){
-// 				$scope.formData = {};
-// 				$scope.msg = "Congratulations! You have successfully added your party theme!";
-// 			})
-// 			.error(function(data) {
-// 			console.log("Error: " + data);
-// 		});
-// 	};
+	// Submit new page 
+	$scope.addPage = function () {
+		$http.post('/api/addEvent', $scope.formData)
+			.success(function(data){
+				$scope.formData = {};
+				$scope.msg = "Congratulations! You have successfully added your event!";
+			})
+			.error(function(data) {
+			console.log("Error: " + data);
+		});
+	};
 
-// 	// Hide the confirmation message when the user clicks on the form again
-// 	$scope.hideMsg = function() {
-// 		$scope.msg = "";
-// 	};
+	// Hide the confirmation message when the user clicks on the form again
+	$scope.hideMsg = function() {
+		$scope.msg = "";
+	};
 
-// });
+});
 
 // wikiParty.controller('byTopicController', function($scope, $http, $routeParams) {
 // 	// Get the page id from the url
