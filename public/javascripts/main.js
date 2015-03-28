@@ -15,10 +15,10 @@ socialButterfly.config(function($routeProvider) {
         	templateUrl : '../pages/eventList.html',
         	controller : 'eventsController'
         })
-        .when('/eventDescription/:event', {
-        	templateUrl : '../pages/event.html',
-        	controller : 'byTopicController'
-        })
+        // .when('/eventDescription/:event', {
+        // 	templateUrl : '../pages/event.html',
+        // 	controller : 'byTopicController'
+        // })
         // .when('/add', {
         // 	templateUrl : '../pages/add.html',
         // 	controller : 'addController'
