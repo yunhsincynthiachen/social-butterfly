@@ -1,0 +1,28 @@
+<div class = 'addMe'>
+<h1>Add Yourself to the Event!</h1>
+<p>Please provide a working link for the image field</p>
+<form name = "addForm" novalidate ng-click = "hideMsg()">
+
+	<input type = "text" name = "name" placeholder = "Event Name" ng-model = formData.name required><br>
+	<span style="color:red" ng-show="addForm.name.$dirty && addForm.name.$invalid"><span ng-show= "addForm.name.$error.required" ng-hide = "msg">A name is required!<br></span></span>
+
+
+	<input type="date" id="eventDate" name="eventDate" ng-model=formData.date placeholder="yyyy-MM-dd" required /><br>
+<!-- 	<span class="error" ng-show="addForm.eventDate.$error.required">Date is Required!</span>
+	<span class="error" ng-show="addForm.eventDate.$error.date">Not a valid date!</span><br> -->
+
+
+	<input type = "text" id='description' placeholder = "Description" ng-model = formData.description><br>
+
+	<input type = "text" placeholder = "Code" ng-model = formData.code><br>
+
+	<input type = "text" placeholder = "Image Link" ng-model = formData.img><br>
+
+
+
+	<button type = "submit" ng-disabled="addForm.name.$invalid" ng-click = "addPage()">Add!</button>
+
+</form><Br>
+<div>{{msg}}</div>
+
+</div>

@@ -23,6 +23,10 @@ socialButterfly.config(function($routeProvider) {
         	templateUrl : '../pages/add.html',
         	controller : 'addController'
         })
+        .when('/addMe', {
+        	templateUrl : '../pages/addMe.html',
+        	controller : 'addMeController'
+        })
         // .when('/edit/:topic', {
         // 	templateUrl : '../pages/edit.html',
         // 	controller : 'editController'
@@ -71,6 +75,29 @@ socialButterfly.controller('addController', function($scope, $http) {
 
 });
 
+socialButterfly.controller('addMeController', function($scope, $http) {
+	$scope.personData = {};
+	$scope.msg = "";
+	console.log('hello')
+
+	// Submit new page 
+	$scope.addPage = function () {
+		$http.post('/api/addMe', $scope.personData)
+			.success(function(data){
+				$scope.personData = {};
+				$scope.msg = "Congratulations! You have successfully added yourself to the event!";
+			})
+			.error(function(data) {
+			console.log("Error: " + data);
+		});
+	};
+
+	// Hide the confirmation message when the user clicks on the form again
+	$scope.hideMsg = function() {
+		$scope.msg = "";
+	};
+
+});
 // wikiParty.controller('byTopicController', function($scope, $http, $routeParams) {
 // 	// Get the page id from the url
 // 	var topicId = $routeParams.topic;
