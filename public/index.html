@@ -20,7 +20,7 @@
 </head>
   
   <!--<body ng-controller='mainController'>-->
-  <body background="images/homelogo.jpg">
+  <body>
    <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -44,9 +44,8 @@
       </div>
     </nav>
 
-  <div id='main' ng-class='result'>
+  <div id='main' ng-class='result' class="background-img">
     {{ message }}
-
     <div ng-view></div>
 
   </div> 
