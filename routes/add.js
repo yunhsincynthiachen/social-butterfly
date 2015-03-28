@@ -63,20 +63,29 @@ routes.addMe = function(req,res){
 			res.status(500).send("Couldn't find this event");
 		}
 
-		event.save(function(err){
-			if(err){
-				console.error("cant save");
-			}
-			console.log("savin the event")
+		// event.save(function(err){
+		// 	if(err){
+		// 		console.error("cant save");
+		// 	}
+		// 	console.log("savin the event")
 			newPerson.save(function(err){
 				if(err){
 					console.error('Cant add person');
 					res.status(500).send("Couldn't add person");
 				}
 				console.log("saving person to event");
-				res.send(event);
+				var peopleArr = event.people;
+				peopleArr.push(newPerson);
+				Event.update({_id:eventId}, {$set:{people:peopleArr}}, function(err){
+					if(err){
+						console.log("noo update");
+					}
+					console.log(event.people);
+					res.send(event);
+				});
 			});
-		});
+		// });
+		
 
 		
 		
