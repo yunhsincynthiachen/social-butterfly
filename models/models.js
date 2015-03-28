@@ -28,6 +28,6 @@ var PeopleSchema = new Schema({
 
 
 module.exports.events = mongoose.model("Events", EventsSchema);
-module.exports.twote = mongoose.model("People", PeopleSchema);
+module.exports.people = mongoose.model("People", PeopleSchema);
 
  
