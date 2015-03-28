@@ -14,8 +14,8 @@ var EventsSchema = new Schema({
 	description: String,
 	code: String,
 	img: String,
-	//people: [{ type: Schema.ObjectId, ref: 'People' }]
-	people: [String]
+	people: [{ type: Schema.ObjectId, ref: 'People' }]
+	//people: [String]
 });
 
 var PeopleSchema = new Schema({

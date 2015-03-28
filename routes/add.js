@@ -28,7 +28,7 @@ routes.addEvent = function(req,res){
 		description: description,
 		code: code,
 		img: img,
-		people: ["Person 1", "Person 2"]
+		people: []
 	});
 
 	// Save new event to database
@@ -42,29 +42,49 @@ routes.addEvent = function(req,res){
 }
 
 routes.addMe = function(req,res){
-
+	var eventId = req.params.event;
 	var name = req.body.name;
 	var description = req.body.description;
 	var tags = req.body.tags;
 	var img = req.body.img;
 	console.log(name);
 
-	// Create new event based on the user's post request
-	var newPeople = new People({
+	// Create new profile based on the user's post request
+	var newPerson = new People({
 		name: name,
 		description: description,
 		tags: tags,
 		img: img,
 	});
 
-	// Save new event to database
-	newPeople.save(function(err){
+	Event.findOne({_id:eventId}).exec(function(err,event){
 		if(err){
-			console.error('Cant add person');
-			res.status(500).send("Couldn't add person");
+			console.error("Can't find this event");
+			res.status(500).send("Couldn't find this event");
 		}
-		res.send(newPeople);
+
+		event.save(function(err){
+			if(err){
+				console.error("cant save");
+			}
+			console.log("savin the event")
+			newPerson.save(function(err){
+				if(err){
+					console.error('Cant add person');
+					res.status(500).send("Couldn't add person");
+				}
+				console.log("saving person to event");
+				res.send(event);
+			});
+		});
+
+		
+		
 	});
+
+
+	// Save new profile to database
+	
 }
 
 

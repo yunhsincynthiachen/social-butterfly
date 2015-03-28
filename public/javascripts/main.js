@@ -23,7 +23,7 @@ socialButterfly.config(function($routeProvider) {
         	templateUrl : '../pages/add.html',
         	controller : 'addController'
         })
-        .when('/addMe', {
+        .when('/addMe/:event', {
         	templateUrl : '../pages/addMe.html',
         	controller : 'addMeController'
         })
@@ -80,15 +80,18 @@ socialButterfly.controller('addController', function($scope, $http) {
 
 });
 
-socialButterfly.controller('addMeController', function($scope, $http) {
+socialButterfly.controller('addMeController', function($scope, $http, $routeParams) {
 	$scope.personData = {};
+	var eventId = $routeParams.event;
 	$scope.msg = "";
 	console.log('hello')
 
 	// Submit new page 
 	$scope.addMe = function () {
-		$http.post('/api/addMe', $scope.personData)
+		$http.post('/api/addMe/'+eventId, $scope.personData)
 			.success(function(data){
+				console.log(data);
+				console.log(data.people);
 				$scope.personData = {};
 				$scope.msg = "Congratulations! You have successfully added yourself to the event!";
 			})
