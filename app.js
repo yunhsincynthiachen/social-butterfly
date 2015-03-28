@@ -26,15 +26,22 @@ app.use(express.static(path.join(__dirname, "public")));
 
 
 //API routes that angular will use to get and post data 
-app.get("/api/pages", pages.getPages);
+// app.get("/api/pages", pages.getPages);
+// app.get("/api/pages/:topic", pages.dispTopic);
+// app.post("/api/edit/:topic", edit.editTopic);
+// app.post("/api/addTopic", add.addTopic);
+// app.post("/api/search", index.search);
+app.get("/api/eventList", events.getEvents);
+app.get("/api/eventDescription/:event", events.dispEvent)
 
-app.get("/api/pages/:topic", pages.dispTopic);
+app.post("/api/addEvent", add.addEvent);
 
-app.post("/api/edit/:topic", edit.editTopic);
+app.get("/api/peopleList", people.getPeople);
+app.get("/api/personMeet/:person", people.getPerson);
 
-app.post("/api/addTopic", add.addTopic);
 
-app.post("/api/search", index.search);
+
+
 
 
 mongoose.connect(process.env.MONGOURI || 'mongodb://localhost/test');
