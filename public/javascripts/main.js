@@ -7,10 +7,10 @@ var socialButterfly = angular.module('socialButterfly', ['ngRoute']);
 
 socialButterfly.config(function($routeProvider) {
     $routeProvider
-        // .when('/', {
-        //     templateUrl : '../pages/home.html',
-        //     controller  : 'searchController'
-        // })
+        .when('/', {
+            templateUrl : '../pages/home.html',
+            controller  : 'searchController'
+        })
         .when('/eventList', {
         	templateUrl : '../pages/eventList.html',
         	controller : 'eventsController'
