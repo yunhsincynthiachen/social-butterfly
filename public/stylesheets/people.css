@@ -8,6 +8,11 @@
 	padding-bottom:4rem;
 }
 
-.people .item {
+.people .peopleAtt {
 	list-style-type: none;
+}
+
+.people .carousel-inner{
+  width:100%;
+  height: 500px !important;
 }

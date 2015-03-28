@@ -23,7 +23,7 @@
 
 
       <div class="item active">
-        <h1>Scroll left and right to scroll through people!</h1>
+        <h1>Click left and right to scroll through people!</h1>
       </div>
 
       <div class="item" ng-repeat="person in people">
@@ -32,10 +32,10 @@
 		            	{{$index + 1}}. {{event.name}}
 		            </a></div> -->
 		            <h1>Name: {{person.name}}</h1>
-		            <ul>
-		            	<li> Description: {{person.description}}</li>
-		            	<li> Tags: {{person.tags}}</li>
-		            	<li> Picture: <img src="{{person.img}}"></li>
+		            <ul class="peopleAtt">
+		            	<li> <h4>{{person.description}}</h4></li>
+		            	<!-- <li> Tags: {{person.tags}}</li> -->
+		            	<li><img src="{{person.img}}"></li>
 		            </ul>
 		    </div><!-- /.col-sm-4 -->
 		</div>
