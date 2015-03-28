@@ -40,6 +40,7 @@ app.get("/api/eventDescription/:event", events.dispEvent)
 
 app.post("/api/addEvent", add.addEvent);
 
+app.post("/api/addMe", add.addMe);
 app.get("/api/peopleList", people.getPeople);
 //app.get("/api/personMeet/:person", people.getPerson);
 
