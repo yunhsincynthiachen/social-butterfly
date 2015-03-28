@@ -81,7 +81,7 @@ socialButterfly.controller('addMeController', function($scope, $http) {
 	console.log('hello')
 
 	// Submit new page 
-	$scope.addPage = function () {
+	$scope.addMe = function () {
 		$http.post('/api/addMe', $scope.personData)
 			.success(function(data){
 				$scope.personData = {};
